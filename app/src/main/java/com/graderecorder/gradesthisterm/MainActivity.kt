@@ -49,7 +49,7 @@ class MainActivity : AppCompatActivity() {
 
 
             MainScope().launch {
-                val  adapter= RecyclerViewAdapter(applicationContext, list!!)
+                val  adapter= RecyclerViewAdapter(this@MainActivity, list!!)
 
                 rec?.adapter=adapter
                 adapter.notifyDataSetChanged()
@@ -79,7 +79,8 @@ class MainActivity : AppCompatActivity() {
             }
 
             R.id.aboutUs -> {
-
+                val i = Intent(this@MainActivity,AboutUs::class.java)
+                startActivity(i)
 
             }
 
@@ -96,11 +97,11 @@ class MainActivity : AppCompatActivity() {
 
                         GlobalScope.launch {
                             val databaseDAO = Db?.getInstance(this@MainActivity.applicationContext).dbDAO()
-                            val dataModels= DataModels()
-                            databaseDAO?.deleteAll()
-                            recreate()
-                        }
 
+                            databaseDAO?.deleteAll()
+
+                        }
+                        recreate()
                         Toast.makeText(this@MainActivity,"All Record Deleted", Toast.LENGTH_SHORT).show()
 
                     }
@@ -124,6 +125,8 @@ class MainActivity : AppCompatActivity() {
             }
 
             R.id.overView->{
+                val i = Intent(this@MainActivity,OverView::class.java)
+                startActivity(i)
 
             }
         }

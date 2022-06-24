@@ -16,6 +16,12 @@
         <activity android:name=".NewCourse">
 
         </activity>
+        <activity android:name=".AboutUs">
+
+        </activity>
+        <activity android:name=".OverView">
+
+        </activity>
         <activity
             android:name=".MainActivity"
             android:exported="true">

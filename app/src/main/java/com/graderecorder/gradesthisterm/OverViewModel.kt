@@ -5,15 +5,9 @@ import androidx.room.PrimaryKey
 import java.io.Serializable
 
 
-@Entity(tableName="GradesAppDatabase")
+
 data class OverViewModel (
-    @PrimaryKey(autoGenerate = true)
-    var key:Int=0,
-    var courseNumber:String?="null",
-    var totalGrades:Double?=0.0,
-    var gradesReceived:Double?=0.0,
-    var gradeType:String?="null",
-
-):Serializable{
-
-}
+    val cName:String?="",
+    val gradesSubmitted:Double?=0.0,
+    val gradesToDate:Double?=0.0
+)

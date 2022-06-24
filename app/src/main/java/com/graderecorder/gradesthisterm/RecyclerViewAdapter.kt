@@ -1,6 +1,7 @@
 package com.graderecorder.gradesthisterm
 
 import android.app.Activity
+import android.app.AlertDialog
 import android.content.Context
 import android.content.DialogInterface
 import android.content.Intent
@@ -41,7 +42,7 @@ class RecyclerViewAdapter (val context: Context, val list:ArrayList<DataModels>)
 
         holder.itemView.setOnClickListener {
 
-            val builder: android.app.AlertDialog.Builder = android.app.AlertDialog.Builder(context)
+            val builder: AlertDialog.Builder = AlertDialog.Builder(context)
 
             builder.setMessage("Do you want to delete the record?")
             builder.setTitle("Alert !")
@@ -52,14 +53,14 @@ class RecyclerViewAdapter (val context: Context, val list:ArrayList<DataModels>)
                 ) { dialog, which ->
 
                     GlobalScope.launch {
-                        val dbDAO = Db?.getInstance(context.applicationContext).dbDAO()
+                        val dbDAO = Db?.getInstance(context).dbDAO()
 
                         dbDAO?.delete(list)
 
 
 
                     }
-                    Toast.makeText(context.applicationContext," Record Deleted", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(context," Record Deleted", Toast.LENGTH_SHORT).show()
 
 
                 }
