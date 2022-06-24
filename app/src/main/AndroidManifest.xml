@@ -13,6 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GradesThisTerm"
         tools:targetApi="31">
+        <activity android:name=".NewCourse">
+
+        </activity>
         <activity
             android:name=".MainActivity"
             android:exported="true">

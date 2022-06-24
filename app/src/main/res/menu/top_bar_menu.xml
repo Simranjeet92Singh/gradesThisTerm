@@ -18,13 +18,13 @@
 
     <item android:id="@+id/overView"
         android:title="@string/overView"
-        app:showAsAction="always">
+        app:showAsAction="never">
 
     </item>
 
     <item android:id="@+id/aboutUs"
         android:title="@string/aboutUs"
-        app:showAsAction="always">
+        app:showAsAction="never">
 
 
     </item>

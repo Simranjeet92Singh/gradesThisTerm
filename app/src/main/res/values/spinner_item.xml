@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="arrayofSpinner">
+        <item>Select Item</item>
+        <item>Quiz</item>
+        <item>MidTerm</item>
+        <item>Project</item>
+        <item>Final</item>
+        <item>Lab</item>
+
+    </string-array>
+</resources>
