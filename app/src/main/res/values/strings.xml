@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Grades This Term</string>
+    <string name="add">Add</string>
+    <string name="deleteAll">Delete All</string>
+    <string name="overView">Over View</string>
+    <string name="aboutUs">About Us</string>
+
+</resources>
