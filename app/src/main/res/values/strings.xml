@@ -8,7 +8,7 @@
 , in Second Activity (add new course activity) we add our grades  with fields (course number, type of grade, grade received , total grades), in third activity which is about us activity shows the details of
 App working, in fourth activity(the bonus activity ) there is a list which shows the grades submitted and grades to date data which updates every entry in data base.\n
 \n
-<b>Name:</b>\n</string>
+<b>Name:</b>\nKrishna Satani</string>
 
     <string name="c_no">Course No:</string>
     <string name="g_type">Grade Type:</string>
