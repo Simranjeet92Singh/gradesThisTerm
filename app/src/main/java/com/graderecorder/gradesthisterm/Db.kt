@@ -6,7 +6,7 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 
 
-@Database(entities = [DataModels::class], version = 2, exportSchema = false)
+@Database(entities = [DataModels::class], version = 3, exportSchema = false)
 abstract class Db : RoomDatabase() {
     abstract fun dbDAO():DbDAO
     companion object{

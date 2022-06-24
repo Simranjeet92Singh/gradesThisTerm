@@ -1,14 +1,18 @@
 package com.graderecorder.gradesthisterm
 
+import android.content.DialogInterface
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.view.WindowManager
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Spinner
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -32,6 +36,8 @@ class NewCourse : AppCompatActivity() {
             getWindow().clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
             getWindow().setStatusBarColor(ContextCompat.getColor(this, R.color.green));
         }
+        val topbar=findViewById<Toolbar>(R.id.topbar)
+        setSupportActionBar(topbar)
 
         c_no = findViewById(R.id.c_no)
           t_grades=findViewById(R.id.t_grades)
@@ -57,7 +63,7 @@ class NewCourse : AppCompatActivity() {
                     {
                         GlobalScope.launch {
 
-                            dataModels?.key = 1
+                            dataModels?.key = 0
                             dataModels?.courseNumber = c_no?.text.toString()
 
                             dataModels?.totalGrades = t_grades?.text.toString().toDouble()
@@ -72,10 +78,13 @@ class NewCourse : AppCompatActivity() {
 
                         }
 
-                      val i = Intent(applicationContext,MainActivity::class.java)
-                        startActivity(i)
 
                         Toast.makeText(applicationContext,"Record Save",Toast.LENGTH_SHORT).show()
+
+                        t_grades?.text?.clear()
+                        c_no?.text?.clear()
+                        g_rec?.text?.clear()
+                        type?.setSelection(0)
 
 
                     }
@@ -94,5 +103,82 @@ class NewCourse : AppCompatActivity() {
             
         }
 
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.top_bar_menu,menu)
+        return true
+
     }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+
+        when(item.itemId){
+
+            R.id.add ->{
+
+                val i = Intent(this@NewCourse,NewCourse::class.java)
+                startActivity(i)
+            }
+
+            R.id.aboutUs -> {
+                val i = Intent(this@NewCourse,AboutUs::class.java)
+                startActivity(i)
+
+            }
+
+            R.id.deleteAll ->{
+                val builder: android.app.AlertDialog.Builder = android.app.AlertDialog.Builder(this@NewCourse)
+
+                builder.setMessage("Do you want to delete All record?")
+                builder.setTitle("Alert !")
+                builder.setCancelable(false)
+                builder
+                    .setPositiveButton(
+                        "Yes"
+                    ) { dialog, which ->
+
+                        GlobalScope.launch {
+                            val databaseDAO = Db?.getInstance(this@NewCourse.applicationContext).dbDAO()
+
+                            databaseDAO?.deleteAll()
+
+                        }
+                        recreate()
+                        Toast.makeText(this@NewCourse,"All Record Deleted", Toast.LENGTH_SHORT).show()
+
+                    }
+
+                builder
+                    .setNegativeButton(
+                        "No",
+                        DialogInterface.OnClickListener { dialog, which ->
+
+                            dialog.cancel()
+                        })
+
+                val alertDialog = builder.create()
+
+
+                alertDialog.show()
+
+
+
+
+            }
+
+            R.id.overView->{
+                val i = Intent(this@NewCourse,OverView::class.java)
+                startActivity(i)
+
+            }
+        }
+        return true
+    }
+
+    override fun onBackPressed() {
+        val i= Intent(this@NewCourse,MainActivity::class.java)
+        i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
+        startActivity( i)
+
+    }
+}
 

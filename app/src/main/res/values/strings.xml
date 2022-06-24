@@ -4,14 +4,11 @@
     <string name="deleteAll">Delete All</string>
     <string name="overView">Over View</string>
     <string name="aboutUs">About Us</string>
-    <string name="about_us">\tGrade Recorder is an Application in which you can record the grade, course number (ie Android or INFO 6124), type of grade (quiz, lab, project, midterm, final), percentage worth of total grade  and the grade received.\n
-	\tIt has Three Activities (Screens) :Your program must have at least three activities: one activity to record the grades as you get them, another activity to visualize all the grades received where you are able to visually distinguish grades for different courses, an activity that explains what your app does and includes your name in it.\n
+    <string name="about_us">\tGrades in this term  is an app to add your current term grades , it has four screens(activities) . First Activity (Main Activity) displays the list of all added data for  the grades of the course of the term
+, in Second Activity (add new course activity) we add our grades  with fields (course number, type of grade, grade received , total grades), in third activity which is about us activity shows the details of
+App working, in fourth activity(the bonus activity ) there is a list which shows the grades submitted and grades to date data which updates every entry in data base.\n
 \n
-	\tIn Main Screen you can add the grade record on pushing the plus button, this will take you to the add grade screen where you add the details and on pushing Ok button , record is saved.\n
-On the toolbar there is option for delete record which delete all the records with an alert box that require your permission.And also an option to view the About Us screen which shows details of about App .\n
-\n
-        <u><b>About the Developer:</b></u>\n
-Developed by : Vishnu </string>
+<b>Name:</b>\n</string>
 
     <string name="c_no">Course No:</string>
     <string name="g_type">Grade Type:</string>

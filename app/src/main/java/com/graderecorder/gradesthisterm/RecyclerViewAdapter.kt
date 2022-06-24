@@ -60,8 +60,12 @@ class RecyclerViewAdapter (val context: Context, val list:ArrayList<DataModels>)
 
 
                     }
-                    Toast.makeText(context," Record Deleted", Toast.LENGTH_SHORT).show()
 
+
+                    Toast.makeText(context," Record Deleted", Toast.LENGTH_SHORT).show()
+                    val i = Intent(context,MainActivity::class.java)
+                    i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
+                    startActivity(context,i,null)
 
                 }
 
